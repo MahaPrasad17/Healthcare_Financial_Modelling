@@ -1,0 +1,173 @@
+// ==============================================================================
+// PROJECT: Healthcare Diagnostics Financial Modelling & M&A Valuation
+// TARGET ENTITY: AuraGen Diagnostics Ltd.
+// FILE: DAX_Measures.dax
+// DATA CLASSIFICATION: Synthetic Financial & Operational Benchmark Data
+// PURPOSE: Complete Production-Grade DAX Formula Library for Power BI Dashboard
+// ==============================================================================
+
+// ------------------------------------------------------------------------------
+// SECTION 1: CORE REVENUE & VOLUME MEASURES
+// ------------------------------------------------------------------------------
+
+Total Revenue (INR Cr) = 
+SUM('dashboard_data'[Revenue_Cr])
+
+Total Test Volume = 
+SUM('dashboard_data'[Test_Volume])
+
+Blended ARPT (INR) = 
+DIVIDE([Total Revenue (INR Cr)] * 10000000, [Total Test Volume], 0)
+
+Genomics Revenue (INR Cr) = 
+CALCULATE(
+    [Total Revenue (INR Cr)], 
+    'dashboard_data'[Segment] = "Genomics & Next-Gen Sequencing"
+)
+
+Genomics Volume = 
+CALCULATE(
+    [Total Test Volume], 
+    'dashboard_data'[Segment] = "Genomics & Next-Gen Sequencing"
+)
+
+Genomics Share of Revenue % = 
+DIVIDE([Genomics Revenue (INR Cr)], [Total Revenue (INR Cr)], 0)
+
+Molecular Revenue (INR Cr) = 
+CALCULATE(
+    [Total Revenue (INR Cr)], 
+    'dashboard_data'[Segment] = "Molecular Diagnostics"
+)
+
+Routine Pathology Revenue (INR Cr) = 
+CALCULATE(
+    [Total Revenue (INR Cr)], 
+    'dashboard_data'[Segment] = "Routine Biochemistry"
+)
+
+Clinical Research Revenue (INR Cr) = 
+CALCULATE(
+    [Total Revenue (INR Cr)], 
+    'dashboard_data'[Segment] = "Clinical Research & Trials"
+)
+
+
+// ------------------------------------------------------------------------------
+// SECTION 2: PROFITABILITY & MARGIN MEASURES
+// ------------------------------------------------------------------------------
+
+Total COGS (INR Cr) = 
+SUM('dashboard_data'[COGS_Cr])
+
+Gross Profit (INR Cr) = 
+[Total Revenue (INR Cr)] - [Total COGS (INR Cr)]
+
+Gross Margin % = 
+DIVIDE([Gross Profit (INR Cr)], [Total Revenue (INR Cr)], 0)
+
+Total EBITDA (INR Cr) = 
+SUM('dashboard_data'[EBITDA_Cr])
+
+EBITDA Margin % = 
+DIVIDE([Total EBITDA (INR Cr)], [Total Revenue (INR Cr)], 0)
+
+Net Profit PAT (INR Cr) = 
+SUM('dashboard_data'[Net_Profit_Cr])
+
+Net Profit Margin % = 
+DIVIDE([Net Profit PAT (INR Cr)], [Total Revenue (INR Cr)], 0)
+
+
+// ------------------------------------------------------------------------------
+// SECTION 3: CASH FLOW & CAPITAL EFFICIENCY MEASURES
+// ------------------------------------------------------------------------------
+
+Total Capex (INR Cr) = 
+SUM('dashboard_data'[Capex_Allocated_Cr])
+
+Free Cash Flow FCFF (INR Cr) = 
+SUM('dashboard_data'[FCFF_Allocated_Cr])
+
+FCF to EBITDA Conversion % = 
+DIVIDE([Free Cash Flow FCFF (INR Cr)], [Total EBITDA (INR Cr)], 0)
+
+Capex Intensity % = 
+DIVIDE([Total Capex (INR Cr)], [Total Revenue (INR Cr)], 0)
+
+
+// ------------------------------------------------------------------------------
+// SECTION 4: HISTORICAL & PROJECTED TIME INTELLIGENCE
+// ------------------------------------------------------------------------------
+
+Prior Period Revenue (INR Cr) = 
+CALCULATE(
+    [Total Revenue (INR Cr)],
+    OFFSET(-1, ORDERBY('dashboard_data'[Fiscal_Year], ASC))
+)
+
+YoY Revenue Growth % = 
+VAR PriorRev = [Prior Period Revenue (INR Cr)]
+RETURN
+IF(
+    ISBLANK(PriorRev) || PriorRev = 0,
+    BLANK(),
+    DIVIDE([Total Revenue (INR Cr)] - PriorRev, PriorRev, 0)
+)
+
+Prior Period EBITDA (INR Cr) = 
+CALCULATE(
+    [Total EBITDA (INR Cr)],
+    OFFSET(-1, ORDERBY('dashboard_data'[Fiscal_Year], ASC))
+)
+
+YoY EBITDA Growth % = 
+VAR PriorEBITDA = [Prior Period EBITDA (INR Cr)]
+RETURN
+IF(
+    ISBLANK(PriorEBITDA) || PriorEBITDA = 0,
+    BLANK(),
+    DIVIDE([Total EBITDA (INR Cr)] - PriorEBITDA, PriorEBITDA, 0)
+)
+
+
+// ------------------------------------------------------------------------------
+// SECTION 5: M&A VALUATION & SYNERGY ACCRETION MEASURES
+// ------------------------------------------------------------------------------
+
+Standalone DCF Enterprise Value (INR Cr) = 
+2800.46
+
+Standalone Equity Value (INR Cr) = 
+2865.46
+
+Implied Share Price (INR) = 
+573.09
+
+M&A Synergies NPV (INR Cr) = 
+564.06
+
+Synergy Explicit 5Yr PV (INR Cr) = 
+112.95
+
+Synergy Terminal Value PV (INR Cr) = 
+451.11
+
+Target Control Premium 20% (INR Cr) = 
+549.54
+
+Net Deal Value Creation (INR Cr) = 
+[M&A Synergies NPV (INR Cr)] - [Target Control Premium 20% (INR Cr)]
+// Result: +INR 14.52 Cr accretion (positive value creation)
+
+Deal Accretion Status = 
+IF([Net Deal Value Creation (INR Cr)] > 0, "ACCRETIVE (+VALUE CREATION)", "DILUTIVE")
+
+Combined Pro-Forma Enterprise Value (INR Cr) = 
+[Standalone DCF Enterprise Value (INR Cr)] + [M&A Synergies NPV (INR Cr)]
+// Result: INR 3,364.52 Cr
+
+Synergy Accretion per Share (INR) = 
+DIVIDE([Net Deal Value Creation (INR Cr)], 5.00, 0)
+// Result: +INR 2.90 per share accretion
+

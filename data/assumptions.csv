@@ -1,0 +1,45 @@
+Category,Parameter,Value,Unit,Description,Data_Classification
+Data Governance,Dataset_Classification,Synthetic / Simulated,Label,All metrics are synthetic simulations for corporate development evaluation,Synthetic - Simulated Benchmark
+Valuation Parameters,Risk_Free_Rate_Rf,0.071,Percentage,10-Year Indian Government Benchmark Bond Yield (G-Sec),Synthetic - Simulated Benchmark
+Valuation Parameters,Equity_Risk_Premium_ERP,0.06,Percentage,Long-term emerging market equity risk premium,Synthetic - Simulated Benchmark
+Valuation Parameters,Unlevered_Industry_Beta,0.85,Ratio,Healthcare Diagnostics comparable median asset beta,Synthetic - Simulated Benchmark
+Valuation Parameters,Target_Debt_Weight,0.15,Percentage,Target Debt / (Debt + Equity) capital structure,Synthetic - Simulated Benchmark
+Valuation Parameters,Target_Equity_Weight,0.85,Percentage,Target Equity / (Debt + Equity) capital structure,Synthetic - Simulated Benchmark
+Valuation Parameters,Levered_Beta,0.9622,Ratio,Beta levered via CAPM Hamada equation: Beta_U * [1 + (1-t)*(D/E)],Synthetic - Simulated Benchmark
+Valuation Parameters,Cost_of_Equity_Ke,0.1287,Percentage,Ke = Rf + Beta * ERP (7.10% + 0.9622 * 6.00%),Synthetic - Simulated Benchmark
+Valuation Parameters,Pre_Tax_Cost_of_Debt_Kd,0.09,Percentage,Weighted average borrowing facility interest rate,Synthetic - Simulated Benchmark
+Valuation Parameters,Effective_Tax_Rate,0.2517,Percentage,Indian corporate tax rate under Section 115BAA (25.17% inclusive of surcharge/cess),Synthetic - Simulated Benchmark
+Valuation Parameters,After_Tax_Cost_of_Debt,0.0673,Percentage,Kd * (1 - Tax Rate) = 9.0% * (1 - 0.2517),Synthetic - Simulated Benchmark
+Valuation Parameters,WACC,0.1195,Percentage,Weighted Average Cost of Capital: (85% * 12.87%) + (15% * 6.73%) = 11.95%,Synthetic - Simulated Benchmark
+Valuation Parameters,Terminal_Growth_Rate_g,0.05,Percentage,Perpetual terminal growth rate aligned with GDP & healthcare trends,Synthetic - Simulated Benchmark
+Valuation Parameters,Exit_EV_EBITDA_Multiple,18.0,Multiple,Exit Multiple for Terminal Value (median peer diagnostic transaction multiple),Synthetic - Simulated Benchmark
+Base Case Forecast,Genomics_Revenue_CAGR,0.224,Percentage,22.4% 5-Yr CAGR expanding mix from 33.0% to 38.0% of revenue,Synthetic - Simulated Benchmark
+Base Case Forecast,Molecular_Revenue_CAGR,0.157,Percentage,Molecular infectious disease panels & specialized RT-PCR,Synthetic - Simulated Benchmark
+Base Case Forecast,Routine_Revenue_CAGR,0.1486,Percentage,Routine biochemistry expansion through regional spoke labs,Synthetic - Simulated Benchmark
+Base Case Forecast,Clinical_Research_CAGR,0.24,Percentage,Pharma biomarker discovery & contract research genomic services,Synthetic - Simulated Benchmark
+Base Case Forecast,Blended_Revenue_Growth_FY25,0.22,Percentage,FY25E YoY Top-line growth (Revenue: ₹607.56 Cr),Synthetic - Simulated Benchmark
+Base Case Forecast,Blended_Revenue_Growth_FY26,0.205,Percentage,FY26E YoY Top-line growth (Revenue: ₹732.11 Cr),Synthetic - Simulated Benchmark
+Base Case Forecast,Blended_Revenue_Growth_FY27,0.19,Percentage,FY27E YoY Top-line growth (Revenue: ₹871.21 Cr),Synthetic - Simulated Benchmark
+Base Case Forecast,Blended_Revenue_Growth_FY28,0.175,Percentage,"FY28E YoY Top-line growth (Revenue: ₹1,023.67 Cr)",Synthetic - Simulated Benchmark
+Base Case Forecast,Blended_Revenue_Growth_FY29,0.16,Percentage,"FY29E YoY Top-line growth (Revenue: ₹1,187.46 Cr)",Synthetic - Simulated Benchmark
+Operating Cost Ratios,COGS_Pct_Revenue,0.3,Percentage,"Reagents, test kits, sequencers flow cells (bulk procurement economies)",Synthetic - Simulated Benchmark
+Operating Cost Ratios,Personnel_Cost_Pct_Revenue,0.175,Percentage,"Pathologists, geneticists, lab technologists & bioinformaticians (steady state)",Synthetic - Simulated Benchmark
+Operating Cost Ratios,Logistics_Cost_Pct_Revenue,0.08,Percentage,Temperature-controlled cold-chain specimen couriers & transport,Synthetic - Simulated Benchmark
+Operating Cost Ratios,Lab_Opex_Pct_Revenue,0.05,Percentage,"NABL/CAP accreditations, machine calibration, laboratory consumables",Synthetic - Simulated Benchmark
+Operating Cost Ratios,SG&A_Pct_Revenue,0.035,Percentage,"Hospital B2B marketing, enterprise LIMS IT infrastructure, corporate overhead",Synthetic - Simulated Benchmark
+Working Capital,Debtor_Days_DSO,45.0,Days,Days Sales Outstanding (B2B hospital & pharma billing cycles),Synthetic - Simulated Benchmark
+Working Capital,Inventory_Days_DIO,35.0,Days,Days Inventory Outstanding for reagents and chemical supplies,Synthetic - Simulated Benchmark
+Working Capital,Creditor_Days_DPO,50.0,Days,Days Payable Outstanding for sequencer and reagent vendors,Synthetic - Simulated Benchmark
+M&A Acquisition,Target_Standalone_EV_Cr,2800.46,INR Crore,Standalone DCF intrinsic Enterprise Value (Gordon Growth at 11.95% WACC),Synthetic - Simulated Benchmark
+M&A Acquisition,Proposed_Acquisition_EV_Cr,3350.0,INR Crore,Agreed Transaction Offer Enterprise Value (20.0x FY24 Actual EBITDA),Synthetic - Simulated Benchmark
+M&A Acquisition,Acquisition_Premium_Pct,0.1962,Percentage,19.6% control premium over standalone DCF value (14.9% vs base scenario),Synthetic - Simulated Benchmark
+M&A Acquisition,Takeover_Control_Premium_Paid_Cr,549.54,INR Crore,"Total monetary premium paid to AuraGen shareholders: ₹3,350.00 - ₹2,800.46 Cr",Synthetic - Simulated Benchmark
+M&A Acquisition,Annual_Reagent_Procurement_Synergies_Cr,17.5,INR Crore,Global reagent volume procurement savings (1.8% of combined COGS by Y5),Synthetic - Simulated Benchmark
+M&A Acquisition,Annual_IT_Admin_Synergies_Cr,13.0,INR Crore,"Consolidation of LIMS IT software, corporate administration & licenses",Synthetic - Simulated Benchmark
+M&A Acquisition,Annual_Logistics_Synergies_Cr,8.5,INR Crore,Cold-chain courier route density & regional processing hub optimization,Synthetic - Simulated Benchmark
+M&A Acquisition,Cross_Selling_Revenue_Synergy_Annual_Cr,48.0,INR Crore,Cross-selling specialized oncology & NIPT panels across Acquirer network,Synthetic - Simulated Benchmark
+M&A Acquisition,Cross_Selling_EBITDA_Contribution_Cr,31.2,INR Crore,EBITDA from cross-selling at 65% contribution margin: ₹48.0 Cr * 65%,Synthetic - Simulated Benchmark
+M&A Acquisition,Total_Combined_EBITDA_Synergies_Y5_Cr,70.2,INR Crore,Total annual operating EBITDA synergies run-rate: ₹39.0 Cr cost + ₹31.2 Cr revenue,Synthetic - Simulated Benchmark
+M&A Acquisition,NPV_of_Net_Synergies_Cr,564.06,INR Crore,Net Present Value of post-tax synergies at 11.95% WACC (Explicit ₹112.95 Cr + Terminal ₹451.11 Cr),Synthetic - Simulated Benchmark
+M&A Acquisition,Net_Acquirer_Value_Creation_Cr,14.52,INR Crore,Accretive deal value created: NPV Synergies (₹564.06 Cr) - Premium Paid (₹549.54 Cr) = +₹14.52 Cr (+₹129.26 Cr vs Base Scenario),Synthetic - Simulated Benchmark
+M&A Acquisition,Post_Synergies_Combined_EV_Cr,3364.52,INR Crore,"Pro-forma value of target under Acquirer ownership: Offer Price ₹3,350 Cr + Net Value ₹14.52 Cr",Synthetic - Simulated Benchmark

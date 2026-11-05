@@ -1,0 +1,10 @@
+Metric,Gordon_Growth_Model,Exit_Multiple_Method
+WACC (%),11.95,11.95
+Terminal Parameter,5.0% perpetuity growth,18.0x EV/EBITDA
+PV of Explicit FCFF (INR Cr),599.87,599.87
+PV of Terminal Value (INR Cr),2200.59,4375.49
+Enterprise Value (INR Cr),2800.46,4975.36
+Net Debt (Cash) (INR Cr),-65.0,-65.0
+Equity Value (INR Cr),2865.46,5040.36
+Fully Diluted Shares (Cr),5.0,5.0
+Implied Value Per Share (INR),573.09,1008.07

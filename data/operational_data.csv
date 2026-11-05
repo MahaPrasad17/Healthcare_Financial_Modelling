@@ -1,0 +1,17 @@
+Fiscal_Year,Segment,Data_Classification,Test_Volume_Number,Avg_Realization_Per_Test_INR,Segment_Revenue_Cr,Gross_Margin_Pct,Active_Reference_Labs,Active_Regional_Labs,Active_Collection_Centers,B2B_Hospital_Ties,Sample_Rejection_Rate_Pct,Avg_Turnaround_Time_Hours
+FY2021,Routine Biochemistry & Hematology,Synthetic - Simulated Benchmark,1850000,530,98.05,0.58,1,6,85,140,1.85,48
+FY2021,Molecular & Infectious,Synthetic - Simulated Benchmark,310000,1974,61.19,0.64,1,6,85,140,1.85,48
+FY2021,Genomics & Next-Gen Sequencing,Synthetic - Simulated Benchmark,45000,13067,58.8,0.72,1,6,85,140,1.85,48
+FY2021,Clinical Research Services,Synthetic - Simulated Benchmark,5200,51923,27.0,0.76,1,6,85,140,1.85,48
+FY2022,Routine Biochemistry & Hematology,Synthetic - Simulated Benchmark,2120000,542,114.9,0.59,1,9,130,210,1.45,40
+FY2022,Molecular & Infectious,Synthetic - Simulated Benchmark,380000,2053,78.01,0.65,1,9,130,210,1.45,40
+FY2022,Genomics & Next-Gen Sequencing,Synthetic - Simulated Benchmark,63000,13365,84.2,0.73,1,9,130,210,1.45,40
+FY2022,Clinical Research Services,Synthetic - Simulated Benchmark,6500,53846,35.0,0.77,1,9,130,210,1.45,40
+FY2023,Routine Biochemistry & Hematology,Synthetic - Simulated Benchmark,2440000,550,134.2,0.6,2,14,195,320,1.05,32
+FY2023,Molecular & Infectious,Synthetic - Simulated Benchmark,450000,2107,94.81,0.66,2,14,195,320,1.05,32
+FY2023,Genomics & Next-Gen Sequencing,Synthetic - Simulated Benchmark,87000,13621,118.5,0.74,2,14,195,320,1.05,32
+FY2023,Clinical Research Services,Synthetic - Simulated Benchmark,8600,55116,47.4,0.78,2,14,195,320,1.05,32
+FY2024,Routine Biochemistry & Hematology,Synthetic - Simulated Benchmark,2750000,561,154.28,0.61,2,20,280,460,0.72,26
+FY2024,Molecular & Infectious,Synthetic - Simulated Benchmark,530000,2160,114.48,0.67,2,20,280,460,0.72,26
+FY2024,Genomics & Next-Gen Sequencing,Synthetic - Simulated Benchmark,118000,13924,164.3,0.75,2,20,280,460,0.72,26
+FY2024,Clinical Research Services,Synthetic - Simulated Benchmark,11500,56348,64.8,0.79,2,20,280,460,0.72,26

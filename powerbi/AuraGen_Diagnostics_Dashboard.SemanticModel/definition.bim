@@ -1,0 +1,71 @@
+{
+  "name": "AuraGen_Diagnostics_SemanticModel",
+  "compatibilityLevel": 1567,
+  "model": {
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "tables": [
+      {
+        "name": "dashboard_data",
+        "columns": [
+          { "name": "Fiscal_Year", "dataType": "string", "sourceColumn": "Fiscal_Year" },
+          { "name": "Period_Type", "dataType": "string", "sourceColumn": "Period_Type" },
+          { "name": "Data_Classification", "dataType": "string", "sourceColumn": "Data_Classification" },
+          { "name": "Region", "dataType": "string", "sourceColumn": "Region" },
+          { "name": "Segment", "dataType": "string", "sourceColumn": "Segment" },
+          { "name": "Revenue_Cr", "dataType": "double", "sourceColumn": "Revenue_Cr" },
+          { "name": "COGS_Cr", "dataType": "double", "sourceColumn": "COGS_Cr" },
+          { "name": "Gross_Profit_Cr", "dataType": "double", "sourceColumn": "Gross_Profit_Cr" },
+          { "name": "Gross_Margin_Pct", "dataType": "double", "sourceColumn": "Gross_Margin_Pct" },
+          { "name": "EBITDA_Cr", "dataType": "double", "sourceColumn": "EBITDA_Cr" },
+          { "name": "EBITDA_Margin_Pct", "dataType": "double", "sourceColumn": "EBITDA_Margin_Pct" },
+          { "name": "Net_Profit_Cr", "dataType": "double", "sourceColumn": "Net_Profit_Cr" },
+          { "name": "Net_Profit_Margin_Pct", "dataType": "double", "sourceColumn": "Net_Profit_Margin_Pct" },
+          { "name": "Test_Volume", "dataType": "int64", "sourceColumn": "Test_Volume" },
+          { "name": "ARPT_INR", "dataType": "double", "sourceColumn": "ARPT_INR" },
+          { "name": "Capex_Allocated_Cr", "dataType": "double", "sourceColumn": "Capex_Allocated_Cr" },
+          { "name": "FCFF_Allocated_Cr", "dataType": "double", "sourceColumn": "FCFF_Allocated_Cr" }
+        ],
+        "partitions": [
+          {
+            "name": "dashboard_data-Partition",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"dashboard_data.csv\"), [Delimiter=\",\", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{ \"Fiscal_Year\", type text }, { \"Period_Type\", type text }, { \"Data_Classification\", type text }, { \"Region\", type text }, { \"Segment\", type text }, { \"Revenue_Cr\", type number }, { \"COGS_Cr\", type number }, { \"Gross_Profit_Cr\", type number }, { \"Gross_Margin_Pct\", type number }, { \"EBITDA_Cr\", type number }, { \"EBITDA_Margin_Pct\", type number }, { \"Net_Profit_Cr\", type number }, { \"Net_Profit_Margin_Pct\", type number }, { \"Test_Volume\", Int64.Type }, { \"ARPT_INR\", type number }, { \"Capex_Allocated_Cr\", type number }, { \"FCFF_Allocated_Cr\", type number }})",
+                "in",
+                "    #\"Changed Type\""
+              ]
+            }
+          }
+        ],
+        "measures": [
+          { "name": "Total Revenue (INR Cr)", "expression": "SUM('dashboard_data'[Revenue_Cr])", "formatString": "#,0.00" },
+          { "name": "Total EBITDA (INR Cr)", "expression": "SUM('dashboard_data'[EBITDA_Cr])", "formatString": "#,0.00" },
+          { "name": "Net Profit PAT (INR Cr)", "expression": "SUM('dashboard_data'[Net_Profit_Cr])", "formatString": "#,0.00" },
+          { "name": "Total Test Volume", "expression": "SUM('dashboard_data'[Test_Volume])", "formatString": "#,0" },
+          { "name": "Blended ARPT (INR)", "expression": "DIVIDE([Total Revenue (INR Cr)] * 10000000, [Total Test Volume], 0)", "formatString": "₹#,0" },
+          { "name": "Gross Margin %", "expression": "DIVIDE(SUM('dashboard_data'[Gross_Profit_Cr]), [Total Revenue (INR Cr)], 0)", "formatString": "0.00%" },
+          { "name": "EBITDA Margin %", "expression": "DIVIDE([Total EBITDA (INR Cr)], [Total Revenue (INR Cr)], 0)", "formatString": "0.00%" },
+          { "name": "PAT Margin %", "expression": "DIVIDE([Net Profit PAT (INR Cr)], [Total Revenue (INR Cr)], 0)", "formatString": "0.00%" },
+          { "name": "Total Free Cash Flow (INR Cr)", "expression": "SUM('dashboard_data'[FCFF_Allocated_Cr])", "formatString": "#,0.00" },
+          { "name": "Total Capex (INR Cr)", "expression": "SUM('dashboard_data'[Capex_Allocated_Cr])", "formatString": "#,0.00" },
+          { "name": "Standalone DCF EV (INR Cr)", "expression": "2800.46", "formatString": "#,0.00" },
+          { "name": "M&A Synergies NPV (INR Cr)", "expression": "564.06", "formatString": "#,0.00" },
+          { "name": "Target Control Premium (INR Cr)", "expression": "549.54", "formatString": "#,0.00" },
+          { "name": "Net Value Creation (INR Cr)", "expression": "[M&A Synergies NPV (INR Cr)] - [Target Control Premium (INR Cr)]", "formatString": "+#,0.00;-#,0.00;0.00" },
+          { "name": "Combined Pro-Forma EV (INR Cr)", "expression": "[Standalone DCF EV (INR Cr)] + [M&A Synergies NPV (INR Cr)]", "formatString": "#,0.00" }
+        ]
+      }
+    ]
+  }
+}
+

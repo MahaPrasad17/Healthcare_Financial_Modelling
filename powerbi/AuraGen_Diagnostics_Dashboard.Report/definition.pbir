@@ -1,0 +1,10 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../AuraGen_Diagnostics_Dashboard.SemanticModel"
+    },
+    "byConnection": null
+  }
+}
+

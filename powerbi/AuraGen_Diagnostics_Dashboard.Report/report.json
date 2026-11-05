@@ -1,0 +1,35 @@
+{
+  "config": "{\"version\":\"5.46\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY18SU07\",\"version\":\"3.0\"}},\"settings\":{\"useNewFilterPaneExperience\":true}}",
+  "layoutOptimization": 0,
+  "sections": [
+    {
+      "name": "Section_ExecSummary",
+      "displayName": "Executive Financial Summary",
+      "width": 1280,
+      "height": 720,
+      "visualContainers": []
+    },
+    {
+      "name": "Section_Operations",
+      "displayName": "Operational & Segment Performance",
+      "width": 1280,
+      "height": 720,
+      "visualContainers": []
+    },
+    {
+      "name": "Section_Valuation",
+      "displayName": "DCF Valuation & Sensitivity",
+      "width": 1280,
+      "height": 720,
+      "visualContainers": []
+    },
+    {
+      "name": "Section_MandA",
+      "displayName": "M&A Synergies & Accretion Model",
+      "width": 1280,
+      "height": 720,
+      "visualContainers": []
+    }
+  ]
+}
+
